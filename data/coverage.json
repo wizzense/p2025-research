@@ -1,0 +1,22 @@
+{
+ "built_at": "2026-10-30",
+ "source_document": "https://static.heritage.org/project2025/2025_MandateForLeadership_FULL.pdf",
+ "chapters_parsed": 30,
+ "people_total": 304,
+ "orgs_total": 167,
+ "sources_total": 15,
+ "role_edges_total": 575,
+ "edges_by_type": {
+  "mandate_author": 38,
+  "civil_society_affiliation": 248,
+  "mandate_contributor": 276,
+  "administration": 13
+ },
+ "people_with_administration_role": 13,
+ "people_with_civil_society_affiliation": 246,
+ "advisory_board_orgs": 54,
+ "contributors_listed": 276,
+ "edges_dropped_unsourced": 0,
+ "admin_roles_skipped_not_in_volume": [],
+ "notes": "Every edge names a page of the volume or a named public record. An affiliation edge exists only where the volume prints the organisation beside the name."
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Aitherium/p2025-personnel-graph/schema/orgs.schema.json",
+  "title": "p2025 organisation",
+  "description": "An organisation the volume names: a civil-society body that contributed to it or sat on its advisory board, or a government agency that employs one of its people.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "kind", "project_2025_advisory_board"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^org-[a-z0-9-]+$" },
+    "name": { "type": "string", "minLength": 2, "maxLength": 200 },
+    "kind": {
+      "type": "string",
+      "enum": ["civil_society", "government", ""],
+      "description": "civil_society = a non-governmental body; government = an agency or department. Empty when the volume does not say."
+    },
+    "project_2025_advisory_board": {
+      "type": "boolean",
+      "description": "True only where the organisation is printed on the volume's advisory board list (p. 11)."
+    },
+    "source_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^src-[a-z0-9-]+$" },
+      "description": "Documents that substantiate the organisation's own claims, chiefly its advisory-board seat."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The organisation's public site, where one was recorded. Empty otherwise."
+    }
+  }
+}

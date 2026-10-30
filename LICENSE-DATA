@@ -1,0 +1,29 @@
+# Data licence — CC BY-SA 4.0
+
+The contents of `data/`, `schema/`, `sources/`, `knowledge/` and `articles/` in this
+repository are licensed under the **Creative Commons Attribution-ShareAlike 4.0
+International** licence (CC BY-SA 4.0).
+
+Full text: <https://creativecommons.org/licenses/by-sa/4.0/legalcode>
+
+## What that means in practice
+
+- **Attribution.** Credit "Project 2025 personnel graph, Aitherium, CC BY-SA 4.0" and
+  link back to this repository. Each row also names its own primary document; keep that
+  citation when you republish a row, because it is the evidence for the claim.
+- **ShareAlike.** If you distribute a modified version of this dataset, distribute it
+  under the same licence.
+- **No additional restrictions.** Do not apply legal terms or technological measures
+  that legally restrict others from doing anything the licence permits.
+
+## What this licence does not cover
+
+The source documents themselves (the *Mandate for Leadership*, agency pages, Senate
+nomination records, news articles) remain under their own publishers' terms. This
+repository stores a citation — publisher, title, URL, locator — not a copy of them,
+apart from short quotations necessary to substantiate a row.
+
+Personal data: this dataset holds **public professional roles only**. It contains no home
+addresses, family members, personal contact details or other non-public information, and
+the validator refuses a contribution that appears to add any. See
+[`CONTRIBUTING.md`](CONTRIBUTING.md#corrections-and-takedowns).

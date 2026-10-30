@@ -1,0 +1,30 @@
+name: validate
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dataset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      # No dependencies: the validator is stdlib-only on purpose, so the gate cannot
+      # go red because a package index is down.
+      - name: Validate every edge resolves to a source
+        run: python scripts/validate.py
+
+      - name: Coverage report
+        run: python scripts/coverage_report.py
+
+      - name: The validator can still fail
+        run: python -m unittest discover -s tests -v

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Aitherium/p2025-personnel-graph/schema/roles.schema.json",
+  "title": "p2025 person-to-role edge",
+  "description": "The unit of this dataset. Every edge names one person, one role, the years it was held, a confidence, and the document that prints it. An edge with no source is invalid by construction.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "person_id", "role_title", "role_type",
+    "date_from", "date_to", "confidence", "source_id"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^role-[a-z0-9-]+$" },
+    "person_id": { "type": "string", "pattern": "^person-[a-z0-9-]+$" },
+    "org_id": {
+      "type": "string",
+      "pattern": "^(org-[a-z0-9-]+)?$",
+      "description": "The organisation the role is held at, where one applies. Empty for a chapter author with no printed affiliation."
+    },
+    "role_title": { "type": "string", "minLength": 2, "maxLength": 160 },
+    "role_type": {
+      "type": "string",
+      "enum": [
+        "mandate_author",
+        "mandate_contributor",
+        "civil_society_affiliation",
+        "administration"
+      ],
+      "description": "mandate_author = wrote a chapter; mandate_contributor = on the contributors list; civil_society_affiliation = the organisation printed beside the contributor's name; administration = a current federal appointment."
+    },
+    "mandate_chapter": {
+      "type": "string",
+      "maxLength": 120,
+      "description": "The volume chapter this edge comes from, where it does."
+    },
+    "date_from": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Year or YYYY-MM-DD the role began, as the source states it. For volume roles, the publication year."
+    },
+    "date_to": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Year or YYYY-MM-DD the role ended. Empty string = still held, or not stated."
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "high = the document states it directly; medium = a primary document supports it indirectly; low = named reporting only."
+    },
+    "source_id": {
+      "type": "string",
+      "pattern": "^src-[a-z0-9-]+$",
+      "description": "Required. Must resolve to a row in sources.jsonl."
+    },
+    "note": { "type": "string", "maxLength": 500 }
+  }
+}
